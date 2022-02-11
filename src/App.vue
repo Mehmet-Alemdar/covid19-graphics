@@ -1,32 +1,40 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <h1>Covid 19 Graphics</h1>
+      <select name="countries">
+        <option value="">Countries</option>
+      </select>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
+  background-color: #FF5733;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #nav {
   padding: 30px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+select {
+  width: 280px;
+  height: 50px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid white;
+  background-color: #FF5733;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #ffffff;
 }
 </style>
