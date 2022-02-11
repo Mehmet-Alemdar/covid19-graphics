@@ -10,6 +10,10 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
+    async fetchCountries () {
+      const request = await axios.get('https://api.covid19api.com/countries')
+      return request.data
+    }
   },
   modules: {
   }
