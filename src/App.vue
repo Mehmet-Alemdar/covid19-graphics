@@ -11,7 +11,10 @@ export default {
     this.countries = await this.fetchCountries()
   },
   methods: {
-    ...mapActions(['fetchCountries'])
+    ...mapActions(['fetchCountries']),
+    goToHomePage : function () {
+      window.location.href = "/"
+    }
   }
 }
 </script>
@@ -19,7 +22,7 @@ export default {
 <template>
   <div id="app">
     <div id="nav">
-      <h1>Covid 19 Graphics</h1>
+      <h3 v-on:click="goToHomePage()">Covid 19 Graphics</h3>
       <div v-if="countries.length" class="countries">
         <form>
           <select name="country" onchange="this.form.submit()">
@@ -47,7 +50,9 @@ body {
 #nav {
   padding: 30px;
 }
-
+h3 {
+  cursor: pointer;
+}
 select {
   width: 280px;
   height: 50px;
