@@ -9,10 +9,18 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 
+import ValuesCard from '@/components/ValuesCard'
 export default {
   name: 'Home',
   components: {
     HelloWorld
+    ValuesCard
   }
 }
 </script>
+<template>
+  <div class="home">
+    <values-card></values-card>
+  </div>
+</template>
+
