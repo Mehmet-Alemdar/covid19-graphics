@@ -13,6 +13,10 @@ export default new Vuex.Store({
     async fetchCountries () {
       const request = await axios.get('https://api.covid19api.com/countries')
       return request.data
+    },
+    async fetchSummary () {
+      const request = await axios.get('https://api.covid19api.com/summary')
+      return request.data
     }
   },
   modules: {
