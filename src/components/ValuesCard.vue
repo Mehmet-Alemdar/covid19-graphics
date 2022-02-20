@@ -2,13 +2,15 @@
 export default {
   name: 'ValuesCard',
   props: {
-    date: String,
-    NewConfirmed: Number,
-    TotalConfirmed: Number,
-    NewDeaths:Number,
-    TotalDeaths:Number,
-    NewRecovered:Number,
-    TotalRecovered:Number
+    global: {
+      Date: String,
+      NewConfirmed: Number,
+      TotalConfirmed: Number,
+      NewDeaths:Number,
+      TotalDeaths:Number,
+      NewRecovered:Number,
+      TotalRecovered:Number
+    }
   }
 }
 </script>
@@ -16,37 +18,37 @@ export default {
 <template>
   <div class="container">
     <div class="date-container">
-      <p class="date">{{ date }}</p>
+      <p class="date">{{ global.Date }}</p>
     </div>
     <div class="values-container">
       <div class="confirmed values">
         <div class="element">
           <h2 class="new-confirmed label">New Confirmed</h2>
-          <p class="value">{{ NewConfirmed }}</p>
+          <p class="value">{{ global.NewConfirmed }}</p>
         </div>
         <div class="element">
           <h2 class="total-confirmed label">Total Confirmed</h2>
-          <p class="value">{{ TotalConfirmed }}</p>
+          <p class="value">{{ global.TotalConfirmed }}</p>
         </div>
       </div>
       <div class="deaths values">
         <div class="element">
           <h2 class="new-deaths label">New Deaths</h2>
-          <p class="value">{{ NewDeaths }}</p>
+          <p class="value">{{ global.NewDeaths }}</p>
         </div>
         <div class="element">
           <h2 class="total-deaths label">Total Deaths</h2>
-          <p class="value">{{ TotalDeaths }}</p>
+          <p class="value">{{ global.TotalDeaths }}</p>
         </div>
       </div>
       <div class="recovered values">
         <div class="element">
           <h2 class="new-recovered label">New Recovered</h2>
-          <p class="value">{{ NewRecovered }}</p>
+          <p class="value">{{ global.NewRecovered }}</p>
         </div>
        <div class="element">
          <h2 class="total-recovered label">Total Revocered</h2>
-          <p class="value">{{ TotalRecovered }}</p>
+          <p class="value">{{ global.TotalRecovered }}</p>
        </div>
       </div>
     </div>
