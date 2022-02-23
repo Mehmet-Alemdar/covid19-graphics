@@ -5,10 +5,17 @@ export default {
   components: {
     Map
   },
+  props: {
+    countriesData: ''
   }
 }
 </script>
 
 <template>
+  <div>
+    <Map
+    :countryData="countriesData"
     />
+  </div>
+  
 </template>
