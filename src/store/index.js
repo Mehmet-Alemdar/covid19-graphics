@@ -15,7 +15,9 @@ export default new Vuex.Store({
       return request.data
     },
     async fetchSummary () {
-      const request = await axios.get('https://api.covid19api.com/summary')
+      const request = await axios.get('https://corona.lmao.ninja/v2/countries?yesterday&sort')
+      return request.data
+    },
       return request.data
     }
   },
