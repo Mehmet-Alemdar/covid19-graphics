@@ -1,5 +1,6 @@
 
 <script>
+import MapChart from '@/components/MapChart'
 import { mapActions } from 'vuex'
 export default {
   name: 'Home',
@@ -8,6 +9,7 @@ export default {
     }
   },
   components: {
+    MapChart
   },
   async mounted () {
   },
@@ -19,6 +21,7 @@ export default {
 
 <template>
   <div class="home">
+    <map-chart></map-chart>
   </div>
 </template>
 
