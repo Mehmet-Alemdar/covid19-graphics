@@ -5,21 +5,10 @@ export default {
   components: {
     Map
   },
-  data () {
-    return {
-      dummyData: {
-        'US' : 60,
-        'CA': 7,
-        'GB' : 8,
-        'IE' : 14
-      }
-    }
   }
 }
 </script>
 
 <template>
-  <Map
-    :countryData="dummyData"
     />
 </template>

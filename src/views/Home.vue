@@ -21,7 +21,6 @@ export default {
 
 <template>
   <div class="home">
-    <map-chart></map-chart>
   </div>
 </template>
 
