@@ -1,16 +1,18 @@
 
 <script>
+import LineChart from '@/components/LineChart'
 import MapChart from '@/components/MapChart'
 import { mapActions } from 'vuex'
 export default {
   name: 'Home',
   data () {
     return {
-      countriesData: {}
+      countriesData : {}
     }
   },
   components: {
-    MapChart
+    MapChart,
+    LineChart
   },
   async mounted () {
     const countries = await this.fetchSummary()
@@ -28,6 +30,12 @@ export default {
 <template>
   <div class="home">
     <map-chart class="map" :countriesData="countriesData"></map-chart>
+    <line-chart continent='Asia'></line-chart>
+    <line-chart continent='Europe'></line-chart>
+    <line-chart continent='Africa'></line-chart>
+    <line-chart continent='North America'></line-chart>
+    <line-chart continent='South America'></line-chart>
+    <line-chart continent='Australia-Oceania'></line-chart>
   </div>
 </template>
 
