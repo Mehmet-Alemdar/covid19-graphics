@@ -30,12 +30,12 @@ export default {
 <template>
   <div class="home">
     <map-chart class="map" :countriesData="countriesData"></map-chart>
-    <line-chart continent='Asia'></line-chart>
-    <line-chart continent='Europe'></line-chart>
-    <line-chart continent='Africa'></line-chart>
-    <line-chart continent='North America'></line-chart>
-    <line-chart continent='South America'></line-chart>
-    <line-chart continent='Australia-Oceania'></line-chart>
+    <line-chart class="line-chart" continent='Asia'></line-chart>
+    <line-chart class="line-chart" continent='Europe'></line-chart>
+    <line-chart class="line-chart" continent='Africa'></line-chart>
+    <line-chart class="line-chart" continent='North America'></line-chart>
+    <line-chart class="line-chart" continent='South America'></line-chart>
+    <line-chart class="line-chart" continent='Australia-Oceania'></line-chart>
   </div>
 </template>
 
@@ -50,5 +50,13 @@ export default {
   padding:10px;
   background-color: white;
   border-radius: 8px;
+}
+.line-chart {
+  max-width: 72rem;
+  margin: 3rem auto;
+  box-shadow: 0 0 10px rgb(194, 194, 194);
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 5px;
 }
 </style>
