@@ -41,12 +41,54 @@ export default {
       <a href="#south-america">South America</a>
       <a href="#australia-oceania">Australia-Oceania</a>
     </div>
-    <line-chart id="asia" class="line-chart" continent='Asia'></line-chart>
-    <line-chart id="europe" class="line-chart" continent='Europe'></line-chart>
-    <line-chart id="africa" class="line-chart" continent='Africa'></line-chart>
-    <line-chart id="north-america" class="line-chart" continent='North America'></line-chart>
+    <div class="chart-container">
+      <line-chart id="asia" class="line-chart" continent='Asia'></line-chart>
+      <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+      <div class="chart-container-bottom">
+        <button class="go-to-continents">Go to continents</button>
+        <p class="date">25.02.2022</p>
+      </div>      
+    </div>
+    <div class="chart-container">
+      <line-chart id="europe" class="line-chart" continent='Europe'></line-chart>
+      <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+      <div class="chart-container-bottom">
+        <button class="go-to-continents">Go to continents</button>
+        <p class="date">25.02.2022</p>
+      </div>      
+    </div>
+    <div class="chart-container">
+      <line-chart id="africa" class="line-chart" continent='Africa'></line-chart>
+      <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+      <div class="chart-container-bottom">
+        <button class="go-to-continents">Go to continents</button>
+        <p class="date">25.02.2022</p>
+      </div>      
+    </div>
+    <div class="chart-container">
+      <line-chart id="north-america" class="line-chart" continent='North America'></line-chart>
+      <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+      <div class="chart-container-bottom">
+        <button class="go-to-continents">Go to continents</button>
+        <p class="date">25.02.2022</p>
+      </div>      
+    </div>
+    <div class="chart-container">
     <line-chart id="south-america" class="line-chart" continent='South America'></line-chart>
-    <line-chart id="australia-oceania" class="line-chart" continent='Australia-Oceania'></line-chart>
+      <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+      <div class="chart-container-bottom">
+        <button class="go-to-continents">Go to continents</button>
+        <p class="date">25.02.2022</p>
+      </div>      
+    </div>
+    <div class="chart-container">
+      <line-chart id="australia-oceania" class="line-chart" continent='Australia-Oceania'></line-chart>
+      <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+      <div class="chart-container-bottom">
+        <button class="go-to-continents">Go to continents</button>
+        <p class="date">25.02.2022</p>
+      </div>      
+    </div>
   </div>
 </template>
 
@@ -110,12 +152,33 @@ a {
 .continent-href a:hover {
   box-shadow: 0 0 3px gray;
 }
-.line-chart {
+.chart-container {
   max-width: 72rem;
+  max-height: 45rem;
   margin: 3rem auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
   box-shadow: 0 0 10px rgb(194, 194, 194);
+  text-align: center;
+}
+.line-chart {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   padding: 0.5rem;
   background-color: white;
-  border-radius: 5px;
+}
+.info {
+  padding: 0.5rem 2rem;
+  color: white;
+}
+.go-to-continents {
+  padding: 0.7rem 2rem;
+  margin-left: 6rem;
+  border: none;
+}
+.date {
+  float: right;
+  margin-right: 1rem;
+  color: white;
 }
 </style>
