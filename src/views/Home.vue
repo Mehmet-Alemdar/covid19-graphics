@@ -51,6 +51,9 @@ export default {
 </template>
 
 <style lang="scss">
+html {
+  scroll-behavior: smooth;
+}
 .home {
   margin: 50px auto;
 }
