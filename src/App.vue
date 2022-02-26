@@ -24,10 +24,10 @@ export default {
     <div id="nav">
       <h3 v-on:click="goToHomePage()">Covid 19 Graphics</h3>
       <div v-if="countries.length" class="countries">
-        <form>
-          <select name="country" onchange="this.form.submit()">
+        <form action="country">
+          <select name="q" onchange="this.form.submit()">
             <option value="">Countries</option>
-            <option  v-for="country in countries">{{country.Country}}</option>
+            <option  v-for="country in countries">{{country}}</option>
           </select>
         </form>
       </div>

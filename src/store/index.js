@@ -11,8 +11,14 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchCountries () {
-      const request = await axios.get('https://api.covid19api.com/countries')
-      return request.data
+      //https://api.covid19api.com/countries
+      const request = await axios.get('https://corona.lmao.ninja/v2/countries?yesterday&sort')
+      let countries = []
+      request.data.forEach(element => {
+        countries.push(element.country)
+      })
+      
+      return countries
     },
     async fetchSummary () {
       const request = await axios.get('https://corona.lmao.ninja/v2/countries?yesterday&sort')
