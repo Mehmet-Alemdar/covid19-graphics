@@ -1,10 +1,10 @@
 <script>
   import { Line } from 'vue-chartjs'
-  import { mapActions } from 'vuex'
+  import { mapActions} from 'vuex'
   export default {
     extends: Line,
     props: {
-      continent: ''
+      data: []
     },
     data() {
       return {
@@ -26,19 +26,11 @@
       }
     },
     async mounted() {
-      const summary = await this.fetchSummary()
-
-      summary.forEach(element => {
-        if(element.continent === this.continent){
-          this.labels.push(element.country)
-          this.values.push(element.active)
-        }
-      })
-
+      
       let chartData = {
-        labels: this.labels,
+        labels: this.data.labels,
         datasets: [{
-          label: this.continent,
+          label: this.data.continent,
           borderWidth: 1,
           borderColor: [
             'rgba(243, 0, 0, 1)',
@@ -64,7 +56,7 @@
             'rgba(200, 0, 240, 0.2)',
             'rgba(237, 0, 150, 0.2)'
           ],
-          data: this.values
+          data: this.data.values
         }]
       }
         
