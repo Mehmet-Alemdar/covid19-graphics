@@ -1,19 +1,39 @@
 <script>
 import { mapActions } from 'vuex';
-import PieChart from '@/components/PieChart'
+import BarChart from '@/components/BarChart'
 export default {
   name: 'Country',
   data () {
     return {
-      country: {}
+      country: {},
+      data: {
+        label: '',
+        labels:[],
+        values: []
+      },
+      date: ''
     }
   },
   components: {
-    PieChart
+    BarChart
   },
   async mounted () {
     const countries = await this.fetchSummary()
     this.country = countries.find(e => e.country == this.$route.query.q)
+    console.log(this.country)
+    this.data.label = this.country.country
+    this.data.labels.push(
+      'Cases','Today Cases',
+      'Deaths','Today Deaths',
+      'Recovered', 'Today Recovered',
+      'Active', 'Critical')
+    this.data.values.push(
+      this.country.cases, this.country.todayCases,
+      this.country.deaths, this.country.todayDeaths,
+      this.country.recovered, this.country.todayRecovered,
+      this.country.active, this.country.critical
+    )
+    this.date = new Date()
   },
   methods: {
     ...mapActions(['fetchSummary'])
@@ -30,7 +50,7 @@ export default {
       <p>Active: {{country.active}}</p>
       <p>Critical: {{country.critical}}</p>
     </div>
-    <a href="#pie-charts">Go To Pie Charts</a>
+    <a href="#pie-charts">Go To Bar Chart</a>
     <div class="comparison-container">
       <div class="comparison"><p class="value">Today Deaths <p>{{country.todayDeaths}}</p></p></div>
       <div class="comparison"><p class="value">Deaths <p >{{country.deaths}}</p> </p></div>
@@ -41,46 +61,8 @@ export default {
     </div>
     <div v-if="country" id="pie-charts">
       <div  class="pie-chart-container">
-        <h2 class="comparison-title">Deaths</h2>
-        <pie-chart class="pie-chart" :data='{label: ["Deaths","Today Deaths"], value:[country.deaths,country.todayDeaths]}'></pie-chart>
-        <table>
-          <tr>
-            <th>Deaths</th>
-            <th>Today Deaths</th>
-          </tr>
-          <tr>
-            <td>{{country.deaths}}</td>
-            <td>{{country.todayDeaths}}</td>
-          </tr>
-        </table>
-      </div>
-      <div  class="pie-chart-container">
-        <h2 class="comparison-title">Cases</h2>
-        <pie-chart class="pie-chart" :data='{label: ["Cases","Today Cases"], value:[country.cases,country.todayCases]}'></pie-chart>
-        <table>
-          <tr>
-            <th>Cases</th>
-            <th>Today Cases</th>
-          </tr>
-          <tr>
-            <td>{{country.cases}}</td>
-            <td>{{country.todayCases}}</td>
-          </tr>
-        </table>
-      </div>
-      <div  class="pie-chart-container">
-        <h2 class="comparison-title">Recovered</h2>
-        <pie-chart class="pie-chart" :data='{label: ["Recovered","Today Recovered"], value:[country.recovered,country.todayRecovered]}'></pie-chart>
-        <table>
-          <tr>
-            <th>Recovered</th>
-            <th>Today Recovered</th>
-          </tr>
-          <tr>
-            <td>{{country.recovered}}</td>
-            <td>{{country.todayRecovered}}</td>
-          </tr>
-        </table>
+        <h2 class="comparison-title">{{date}}</h2>
+        <bar-chart :data='this.data'></bar-chart>
       </div>
     </div>
   </div>
@@ -154,12 +136,12 @@ export default {
     margin: 6rem auto;
     box-shadow: 0 0 10px rgb(199, 199, 199);
     border-radius: 8px;
-    background: linear-gradient(45deg,#ffd900,#BA00FF);
+    // background: linear-gradient(45deg,#ffd900,#BA00FF);
     text-align: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black;
   }
   .comparison-title {
     padding-top: 1rem;
