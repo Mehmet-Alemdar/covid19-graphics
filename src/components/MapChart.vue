@@ -6,7 +6,7 @@ export default {
     Map
   },
   props: {
-    countriesData: ''
+    countriesData: {}
   }
 }
 </script>
@@ -15,6 +15,10 @@ export default {
   <div>
     <Map
     :countryData="countriesData"
+    highColor="#F40303"
+    lowColor="#F4E103"
+    countryStrokeColor="#fff"
+    legendHeaderBackgroundColor="#00D4E0"
     />
   </div>
   

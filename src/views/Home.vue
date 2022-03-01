@@ -17,7 +17,6 @@ export default {
         {continent:'Australia-Oceania', labels: [], values: []}
       ],
       loaded: false
-
     }
   },
   components: {
@@ -39,6 +38,7 @@ export default {
     countries.forEach(element => {
       this.countriesData[element.countryInfo.iso2] = element.active
     })
+    
   },
   methods: {
     ...mapActions(['fetchSummary']),
@@ -49,13 +49,17 @@ export default {
   }
 }
 </script>
-
 <template>
   <div class="home">
     <div class="container line-chart-href">
       <a href="#continents">View The Line Charts</a>
     </div>
-    <map-chart class="map" :countriesData="countriesData"></map-chart>
+    <div v-if="this.loaded">
+      <map-chart class="map" :countriesData="countriesData"></map-chart>
+    </div>
+    <div v-else>
+      <div class="map"></div>
+    </div>
     <div class="container continent-href" id="continents">
       <a href="#asia">Asia</a>
       <a href="#europe">Europe</a>
@@ -71,7 +75,7 @@ export default {
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
           <p class="date">25.02.2022</p>
-        </div>      
+        </div>
       </div>
       <div class="chart-container">
         <line-chart id="europe" class="line-chart" :data="{continent: this.data[1].continent, labels: this.data[1].labels, values: this.data[1].values}" ></line-chart>
@@ -148,7 +152,8 @@ a {
   color: #E74C3C;
 }
 .map {
-  max-width: 950px;
+  max-width: 55rem;
+  height: 35rem;
   box-shadow: 0 0 10px rgb(202, 202, 202);
   margin: 2rem auto;
   padding:10px;
