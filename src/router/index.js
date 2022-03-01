@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Country from '../views/Country.vue'
+import Compare from '../views/Compare.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/country',
     name: 'Country',
     component: Country
+  },
+  {
+    path: '/compare',
+    name: 'Compare',
+    component: Compare
   }
 ]
 
