@@ -58,7 +58,9 @@ export default {
       <map-chart class="map" :countriesData="countriesData"></map-chart>
     </div>
     <div v-else>
-      <div class="map"></div>
+      <div class="map">
+        <div class="loader"></div>
+      </div>
     </div>
     <div class="container continent-href" id="continents">
       <a href="#asia">Asia</a>
@@ -215,5 +217,20 @@ a {
   float: right;
   margin-right: 1rem;
   color: white;
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #db0972;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin: 30% auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 }
 </style>
