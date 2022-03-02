@@ -15,10 +15,11 @@ export default {
   <div>
     <Map
     :countryData="countriesData"
-    highColor="#F40303"
-    lowColor="#F4E103"
+    highColor="#007F70"
+    lowColor="#00CAB3"
     countryStrokeColor="#fff"
-    legendHeaderBackgroundColor="#00D4E0"
+    legendHeaderBackgroundColor="#fff"
+    legendContentBackgroundColor="#fff"
     />
   </div>
   
