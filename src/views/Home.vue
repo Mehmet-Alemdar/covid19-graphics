@@ -232,5 +232,14 @@ a {
   100% { transform: rotate(360deg); }
 }
 
+@media screen and(max-width:750px) {
+  .continent-href {
+    flex-direction: column;
+  }
+  .continent-href a {
+    width: 9rem;
+    padding: 0.3rem;
+  }
+
 }
 </style>
