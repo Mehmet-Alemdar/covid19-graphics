@@ -94,7 +94,7 @@ select {
 .router:hover {
   color:#FFC800;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .bar {
     flex-direction: column;
     gap: 1rem;
