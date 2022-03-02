@@ -250,6 +250,9 @@ html {
     width: 9rem;
     padding: 0.3rem;
   }
+  .chart-container {
+    width: 29rem;
+  }
 
 }
 </style>
