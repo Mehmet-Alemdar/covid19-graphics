@@ -143,52 +143,57 @@ html {
 }
 .line-chart-href a {
   flex: 1;
-  padding: 0.8rem;
+  padding: 0.5rem;
+  background-color: #db2f08;
+
+  box-shadow: 0 0 7px rgb(196, 196, 196);
+  color: black;
 }
-.line-chart-href:hover{
-  box-shadow: 0 0 7px rgb(182, 182, 182);
+.line-chart-href a:hover{
+  background-color: #db0972;
+
 }
-a {
+.home a {
   text-decoration: none !important;
-  font-size: 1.25rem;
-  color: #E74C3C;
+  color: white;
 }
 .map {
   max-width: 55rem;
   height: 35rem;
-  box-shadow: 0 0 10px rgb(202, 202, 202);
   margin: 2rem auto;
   padding:10px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.1);
   border-radius: 8px;
 }
 .continent-href {
-  max-width: 50rem;
+  max-width: 70%;
   display: flex;
+  flex-direction: row;
+  gap: 1rem;
   text-align: center;
   align-items: center;
   padding: 1rem;
+  background: linear-gradient(90deg,#db2f08,#db0972); 
 }
 .continent-href a {
   flex: 1;
-  margin: 0 0.5rem;
-  padding: 0.3rem;
-  box-shadow: 0 0 1px rgb(94, 94, 94);
-  border-radius: 3px;
+  box-shadow: 0 0 1px rgb(0, 0, 0);
+  width: 4rem;
   height: 4rem;
+  font-size: 0.9rem;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  background-color: white;
 }
 .continent-href a:hover {
-  box-shadow: 0 0 3px gray;
+  box-shadow: 0 0 2px rgb(0, 0, 0);
 }
 .chart-container {
   max-width: 72rem;
   max-height: 45rem;
   margin: 3rem auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg,#db2f08,#db0972);
   border-radius: 5px;
   box-shadow: 0 0 10px rgb(194, 194, 194);
   text-align: center;
@@ -201,6 +206,7 @@ a {
 }
 .info {
   padding: 0.5rem 2rem;
+  font-size: 1rem;
   color: white;
 }
 .go-to-continents {
@@ -209,14 +215,18 @@ a {
   border: none;
   cursor: pointer;
   transition: 0.2s;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
 }
 .go-to-continents:hover {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .date {
   float: right;
   margin-right: 1rem;
   color: white;
+  font-size: 0.8rem;
+}
 .loader {
   border: 6px solid #f3f3f3;
   border-top: 6px solid #db0972;
