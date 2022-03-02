@@ -44,24 +44,32 @@ export default {
 <template>
   <div class="country">
     <div class="summary-container">
-      <h2>{{country.country}}</h2>
+      <p class="title">{{country.country}}</p>
       <img :src="country.countryInfo.flag" alt="">
       <p>Population: {{country.population}}</p>
       <p>Active: {{country.active}}</p>
       <p>Critical: {{country.critical}}</p>
     </div>
-    <a href="#pie-charts">Go To Bar Chart</a>
-    <div class="comparison-container">
-      <div class="comparison"><p class="value">Today Deaths <p>{{country.todayDeaths}}</p></p></div>
-      <div class="comparison"><p class="value">Deaths <p >{{country.deaths}}</p> </p></div>
-      <div class="comparison"><p class="value">Today Cases <p >{{country.todayCases}}</p> </p></div>
-      <div class="comparison"><p class="value">Cases <p >{{country.cases}}</p> </p></div>
-      <div class="comparison"><p class="value">Today Recovered <p >{{country.todayRecovered}}</p> </p></div>
-      <div class="comparison"><p class="value">Recovered <p >{{country.recovered}}</p> </p></div>      
+    <div class="bar-chart-href">
+      <a href="#bar-chart">Go To Bar Chart</a>
     </div>
-    <div v-if="country" id="pie-charts">
-      <div  class="pie-chart-container">
-        <h2 class="comparison-title">{{date}}</h2>
+    <div class="comparison-container">
+      <div class="comparison">
+        <div><p>Today Deaths <p class="value">{{country.todayDeaths}}</p></p></div>
+        <div><p>Deaths <p class="value">{{country.deaths}}</p> </p></div>
+      </div>
+      <div class="comparison">
+        <div><p>Today Cases <p class="value">{{country.todayCases}}</p> </p></div>
+        <div><p>Cases <p class="value">{{country.cases}}</p> </p></div>
+      </div>
+      <div class="comparison">
+        <div><p>Today Recovered <p class="value">{{country.todayRecovered}}</p> </p></div>
+        <div><p>Recovered <p class="value">{{country.recovered}}</p> </p></div>
+      </div>
+    </div>
+    <div v-if="country" id="bar-chart">
+      <div  class="bar-chart-container">
+        <p class="comparison-title">{{date}}</p>
         <bar-chart :data='this.data'></bar-chart>
       </div>
     </div>
@@ -69,93 +77,74 @@ export default {
 </template>
 
 <style lang="scss">
-  html {
-    font-weight: 200;
-  }
-  h2,p  {
-    font-family: 'Times New Roman', Times, serif;
-  }
-  .country {
-    // background-color: #ffd000;
-    text-align: center;
-  }
-  .country a {
-    color: #ffbb00;
-    font-size: 18px;
-  }
-  .country a:hover {
-    color: #ffd000;
-  }
+.country {
+  text-align: center;
+  font-weight: 200;
+}
+.title {
+  text-transform: uppercase;
+}
+.summary-container {
+  max-width: 50rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 3rem auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.bar-chart-href {
+  margin: 1rem auto;
+  width: 15rem;
+  display: flex;
+  background-color: aqua;
+}
+.bar-chart-href a {
+  flex: 1;
+  padding: 0.5rem;
+  background-color: #db2f08;
+  box-shadow: 0 0 7px rgb(196, 196, 196);
+  color: white;
+  text-decoration: none !important;
+}
+.bar-chart-href a:hover{
+  background-color: #db0972;
+}
+.comparison-container {
+  max-width: 60rem;
+  margin: 3rem auto;
+  display: flex;
+  gap: 1.5rem;
+  text-align: center;
+}
+.comparison {
+  flex: 1;
+  background: linear-gradient(45deg,#db2f08,#db0972);
+  padding: 1.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #d61d7a;
+  color: black;
+}
+.value {
+  color: white;
+}
+.bar-chart-container {
+  max-width: 50rem;
+  margin: 5rem auto;
+  box-shadow: 0 0 8px rgb(196, 196, 196);
+  border-radius: 8px;
+  padding: 0.5rem 0.5rem;
+}
+@media screen and (max-width: 750px)  {
   .summary-container {
-    margin: 5rem auto;
-    max-width: 50rem;
-    box-shadow: 0 0 10px rgb(187, 187, 187);
-    text-align: center;
-    padding: 1rem 0;
-    border-radius: 7px;
-    background-color: white;
+    width: 25rem;
   }
   .comparison-container {
-     margin: 5rem auto;
-    max-width: 50rem;
-    box-shadow: 0 0 15px 1px rgba(159, 95, 223, 0.9);
-    text-align: center;
-    border-radius:7px;
-    display: flex;
-    flex-flow: column;
-  }
-  .comparison {
-    flex: 1;
-    padding: 1rem;
-    color: white;
-  }
-  .comparison:first-child {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-  }
-  .comparison:last-child {
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-  }
-  .comparison:nth-child(odd){
-    background-color: rgb(159, 95, 223);
-  }
-  .comparison:nth-child(even){
-    background-color: rebeccapurple;
-  }
-  p {
-    font-size: 20px;
-  }
-  .value {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffd000;
-  }
-  .pie-chart-container {
-    max-width: 50rem;
-    margin: 6rem auto;
-    box-shadow: 0 0 10px rgb(199, 199, 199);
-    border-radius: 8px;
-    // background: linear-gradient(45deg,#ffd900,#BA00FF);
-    text-align: center;
-    align-items: center;
-    display: flex;
+    width: 20rem;
     flex-direction: column;
-    color: black;
   }
-  .comparison-title {
-    padding-top: 1rem;
-    text-transform: uppercase;
-    flex: 0.5;
+  .bar-chart-container {
+    width: 27rem;
   }
-  .pie-chart {
-    padding-bottom: 3rem;
-    width: 100%;
-  }
-  table {
-    width: 40%;
-    padding: 1.5rem;
-    margin-left: 2rem;
-    align-items: center;
-  }
+}
 </style>
