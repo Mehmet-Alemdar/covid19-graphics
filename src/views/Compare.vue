@@ -27,6 +27,11 @@ export default {
     check: function() {
       this.clicked = false
     },
+    uncheck: function (e) {
+      this.clicked = false
+      const countryIndex = this.checked.indexOf(e.target.value)
+      this.checked.splice(countryIndex,1)
+    },
     compareCountries: function() {
       this.selectedCountries = []
       if(this.checked.length > 1){
@@ -104,6 +109,7 @@ export default {
       </div>
       <div class="selected" v-if="checked">
         <div class="selected-country" v-for="country in checked">
+          <button :value="country" v-on:click='uncheck($event)' > x </button>
           <p>{{country}}</p>
         </div>
       </div>
