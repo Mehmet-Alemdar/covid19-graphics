@@ -25,7 +25,7 @@
     },
     async mounted() {
       let chartData = {
-        labels: ['Active','Cases','Critical','Deaths','Recovered','Test'],
+        labels: ['Active','Cases','Critical','Recovered','Deaths','Test'],
         datasets: this.data
       }
         

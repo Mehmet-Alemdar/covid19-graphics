@@ -52,8 +52,8 @@ export default {
                   element.active,
                   element.cases,
                   element.critical,
-                  element.deaths,
                   element.recovered,
+                  element.deaths,
                   element.tests
                 ],
                 borderWidth: 1,
@@ -159,7 +159,7 @@ export default {
   box-shadow: 0 0 8px rgba(0, 0, 0,0.2);
 }
 .checkbox {
-  padding: 0.2rem;
+  padding: 0.5rem;
   border-bottom: 1px solid white;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -274,8 +274,14 @@ export default {
 }
 
 @media screen and(max-width:750px) {
+  .compare {
+    margin: 1rem;
+  }
   .country-list {
     width: 10rem;
+  }
+  .button-clear-all button {
+    height: 1.5rem;
   }
   .selected-country {
     width: 10rem;
@@ -284,11 +290,9 @@ export default {
     overflow-y: auto;
   }
   .country-card {
-    min-width:9rem;
+    min-width:8rem;
+    min-height: 5rem;
     font-size: 1rem;
-  }
-  .chart {
-    width: 19rem;
   }
 }
 
