@@ -38,7 +38,6 @@ export default {
     countries.forEach(element => {
       this.countriesData[element.countryInfo.iso2] = element.active
     })
-    
   },
   methods: {
     ...mapActions(['fetchSummary']),
@@ -51,6 +50,10 @@ export default {
 </script>
 <template>
   <div class="home">
+    <div class="top-info">
+      <p>04/03/2022</p>
+      <p>these charts show countries' active coronavirus counts</p>
+    </div>
     <div class="container line-chart-href">
       <a href="#continents">View The Line Charts</a>
     </div>
@@ -76,7 +79,6 @@ export default {
         <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
-          <p class="date">25.02.2022</p>
         </div>
       </div>
       <div class="chart-container">
@@ -84,7 +86,6 @@ export default {
         <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
-          <p class="date">25.02.2022</p>
         </div>      
       </div>
       <div class="chart-container">
@@ -92,7 +93,6 @@ export default {
         <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
-          <p class="date">25.02.2022</p>
         </div>      
       </div>
       <div class="chart-container">
@@ -100,7 +100,6 @@ export default {
         <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
-          <p class="date">25.02.2022</p>
         </div>      
       </div>
       <div class="chart-container">
@@ -108,7 +107,6 @@ export default {
         <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
-          <p class="date">25.02.2022</p>
         </div>      
       </div>
       <div class="chart-container">
@@ -116,7 +114,6 @@ export default {
         <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
-          <p class="date">25.02.2022</p>
         </div>      
       </div>
     </div>
@@ -128,7 +125,10 @@ html {
   scroll-behavior: smooth;
 }
 .home {
-  margin: 50px auto;
+  margin: 0 auto;
+}
+.top-info {
+  text-align: center;
 }
 .container {
   box-shadow: 0 0 3px rgb(182, 182, 182);
@@ -162,7 +162,7 @@ html {
   height: 35rem;
   margin: 2rem auto;
   padding:10px;
-  background-color: rgba(255,255,255,0.1);
+  background-color: whitesmoke;
   border-radius: 8px;
 }
 .continent-href {
@@ -211,7 +211,7 @@ html {
 }
 .go-to-continents {
   padding: 0.7rem 2rem;
-  margin-left: 6rem;
+  margin: 0 auto;
   border: none;
   cursor: pointer;
   transition: 0.2s;
@@ -220,12 +220,6 @@ html {
 }
 .go-to-continents:hover {
   background-color: rgba(0, 0, 0, 0.3);
-}
-.date {
-  float: right;
-  margin-right: 1rem;
-  color: white;
-  font-size: 0.8rem;
 }
 .loader {
   border: 6px solid #f3f3f3;
@@ -251,8 +245,7 @@ html {
     padding: 0.3rem;
   }
   .chart-container {
-    width: 29rem;
+    margin: 2rem 0.2rem;
   }
-
 }
 </style>
