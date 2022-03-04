@@ -76,42 +76,42 @@ export default {
     <div v-if="this.loaded">
       <div class="chart-container">
         <line-chart id="asia" class="line-chart" :data="{continent: this.data[0].continent, labels: this.data[0].labels, values: this.data[0].values}"></line-chart>
-        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+        <p class="info">The number of active coronavirus cases of countries in the {{this.data[0].continent}} continent</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
         </div>
       </div>
       <div class="chart-container">
         <line-chart id="europe" class="line-chart" :data="{continent: this.data[1].continent, labels: this.data[1].labels, values: this.data[1].values}" ></line-chart>
-        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+        <p class="info">The number of active coronavirus cases of countries in the {{this.data[1].continent}} continent</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
         </div>      
       </div>
       <div class="chart-container">
         <line-chart id="africa" class="line-chart" :data="{continent: this.data[2].continent, labels: this.data[2].labels, values: this.data[2].values}" ></line-chart>
-        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+        <p class="info">The number of active coronavirus cases of countries in the {{this.data[2].continent}} continent</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
         </div>      
       </div>
       <div class="chart-container">
         <line-chart id="north-america" class="line-chart" :data="{continent: this.data[3].continent, labels: this.data[3].labels, values: this.data[3].values}" ></line-chart>
-        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+        <p class="info">The number of active coronavirus cases of countries in the {{this.data[3].continent}} continent</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
         </div>      
       </div>
       <div class="chart-container">
       <line-chart id="south-america" class="line-chart" :data="{continent: this.data[4].continent, labels: this.data[4].labels, values: this.data[4].values}" ></line-chart>
-        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+        <p class="info">The number of active coronavirus cases of countries in the {{this.data[4].continent}} continent</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
         </div>      
       </div>
       <div class="chart-container">
         <line-chart id="australia-oceania" class="line-chart" :data="{continent: this.data[5].continent, labels: this.data[5].labels, values: this.data[5].values}" ></line-chart>
-        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+        <p class="info">The number of active coronavirus cases of countries in the {{this.data[5].continent}} continent</p>
         <div class="chart-container-bottom">
           <button class="go-to-continents" v-on:click='scrollToContinets()'>Go to continents</button>
         </div>      
