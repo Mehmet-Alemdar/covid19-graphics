@@ -148,7 +148,6 @@ html {
   flex: 1;
   padding: 0.5rem;
   background-color: #db2f08;
-
   box-shadow: 0 0 7px rgb(196, 196, 196);
   color: black;
 }
@@ -191,6 +190,7 @@ html {
 }
 .continent-href a:hover {
   box-shadow: 0 0 2px rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .chart-container {
   max-width: 72rem;
