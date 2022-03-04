@@ -79,7 +79,6 @@ export default {
 <style lang="scss">
 .country {
   text-align: center;
-  font-weight: 60;
   padding-bottom: 5rem;
 }
 .title {
