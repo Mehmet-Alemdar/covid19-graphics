@@ -139,6 +139,7 @@ export default {
 <style lang="scss">
 .compare {
   margin: 3rem auto;
+  padding-bottom: 4rem;
 }
 .explanation {
   text-align: center;
@@ -245,7 +246,7 @@ export default {
 .chart {
   background-color: white;
   margin: 2rem auto;
-  max-width: 40rem;
+  max-width: 72rem;
   height: 25rem;
   background: linear-gradient(90deg,#db2f08,#db0972);
   box-shadow: 0 0 10px rgb(214, 214, 214);
