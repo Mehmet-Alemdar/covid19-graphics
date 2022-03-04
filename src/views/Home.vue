@@ -16,7 +16,8 @@ export default {
         {continent:'South America', labels: [], values: []},
         {continent:'Australia-Oceania', labels: [], values: []}
       ],
-      loaded: false
+      loaded: false,
+      date: ''
     }
   },
   components: {
@@ -24,6 +25,8 @@ export default {
     LineChart
   },
   async mounted () {
+    this.date = await this.currentDate()
+
     const countries = await this.fetchSummary()
     countries.forEach(element => {
       this.data.find(i => {
@@ -40,7 +43,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['fetchSummary']),
+    ...mapActions(['fetchSummary', 'currentDate']),
     scrollToContinets: function () {
       const continentsBar = document.querySelector('#continents')
       continentsBar.scrollIntoView()
@@ -51,7 +54,7 @@ export default {
 <template>
   <div class="home">
     <div class="top-info">
-      <p>04/03/2022</p>
+      <p>{{date}}</p>
       <p>these charts show countries' active coronavirus counts</p>
     </div>
     <div class="container line-chart-href">
