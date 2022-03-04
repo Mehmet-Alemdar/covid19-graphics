@@ -22,7 +22,7 @@ export default {
 <template>
   <div id="app">
     <div id="nav">
-      <h3 class="go-to-home" v-on:click="goToHomePage()">Covid 19 Graphics</h3>
+      <h3 class="go-to-home" v-on:click="goToHomePage()">Coronavirus Graphics</h3>
       <div class="bar">
         <router-link class="bar-element router" to="/compare">Compare countries</router-link>
         <div v-if="countries.length" class="countries">

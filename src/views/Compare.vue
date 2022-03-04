@@ -92,7 +92,7 @@ export default {
 <template>
   <div class="compare">
     <div class="explanation">
-      <p>Select the countries you want to compare covid 19 data to</p>
+      <p>Select the countries you want to compare Coronavirus data to</p>
     </div>
     <div class="country-select">
       <div v-if="countries.length > 0">
