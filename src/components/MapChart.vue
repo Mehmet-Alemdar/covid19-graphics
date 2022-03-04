@@ -20,6 +20,7 @@ export default {
     countryStrokeColor="#fff"
     legendHeaderBackgroundColor="#fff"
     legendContentBackgroundColor="#fff"
+    currencyCurrent='none'
     />
   </div>
   
