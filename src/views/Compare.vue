@@ -46,6 +46,10 @@ export default {
         this.summary.forEach(element => {
           this.checked.find(i => {
             if(i == element.country) {
+
+              var r = () => Math.random() * 256 >> 0;
+              var color = `${r()}, ${r()}, ${r()}`;
+
               this.selectedCountries.push({
                 label: element.country,
                 data: [
@@ -57,23 +61,8 @@ export default {
                   element.tests
                 ],
                 borderWidth: 1,
-                borderColor: [
-                  'rgba(243, 0, 0, 1)',
-                  'rgba(243, 161, 0, 1)',
-                  'rgba(153, 240, 0, 1)',
-                  'rgba(0, 38, 237, 1)',
-                  'rgba(0, 234, 240, 1)',
-                  'rgba(0, 140, 240, 1)',
-                  
-                ],
-                backgroundColor: [
-                  'rgba(243, 0, 0, 0.2)',
-                  'rgba(243, 161, 0, 0.2)',
-                  'rgba(153, 240, 0, 0.2)',
-                  'rgba(0, 38, 237, 0.2)',
-                  'rgba(0, 234, 240, 0.2)',
-                  'rgba(0, 140, 240, 0.2)',
-                ]
+                borderColor: `rgb(${color})`,
+                backgroundColor: `rgba(${color},0.2)`
               })
             }
           })

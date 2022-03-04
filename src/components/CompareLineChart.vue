@@ -14,8 +14,6 @@
             yAxes: [{
               display: true,
               ticks: {
-                stepSize: 100,
-                max: 1000,
                 min:0
               }
             }]
