@@ -249,8 +249,8 @@ export default {
   max-width: 72rem;
   height: 25rem;
   background: linear-gradient(90deg,#db2f08,#db0972);
-  box-shadow: 0 0 10px rgb(214, 214, 214);
-  border-radius: 8px;
+  
+  border-radius: 10px;
   color: white;
   text-align: center;
   align-items: center;
@@ -259,6 +259,8 @@ export default {
 .compare-chart {
   background-color: white;
   border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgb(214, 214, 214);
 }
 .loader {
   border: 6px solid #f3f3f3;
