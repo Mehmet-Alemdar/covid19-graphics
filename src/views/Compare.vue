@@ -5,7 +5,6 @@ import LineChart from '@/components/CompareLineChart.vue'
 export default {
   data () {
     return {
-      //checkboxes: [],
       summary: [],
       countries: [],
       checked: [],
@@ -31,6 +30,14 @@ export default {
       this.clicked = false
       const countryIndex = this.checked.indexOf(e.target.value)
       this.checked.splice(countryIndex,1)
+    },
+    uncheckAll: function () {
+      this.clicked = false
+      this.checked = []
+    },
+    scrollToChart: function () {
+      const chart = document.querySelector('#chart')
+      chart.scrollIntoView()
     },
     compareCountries: function() {
       this.selectedCountries = []
@@ -72,121 +79,217 @@ export default {
           })
         })
         this.clicked = true
+        const chart = document.querySelector('.chart')
+        chart.scrollIntoView()
       }else{
-        alert('no')
+        alert('At least two countries should be selected for comparison')
         this.clicked = false
       }
-      // this.clicked = false
-      // console.log(this.selectedCountries)
-      // const chartDiv = document.querySelector('.chart')
-      // console.log(chartDiv)
-      // console.log(this.checked)
-      // console.log(this.selectedCountries)
-      // countries.forEach(element => {
-      //   this.data.find(i => {
-      //     if(i.continent == element.continent){
-      //       i.labels.push(element.country)
-      //       i.values.push(element.active)
-      //       this.loaded = true
-      //     }
-      //   })
-      // })
     }
   }
 }
 </script>
-<template lang="html">
+<template>
   <div class="compare">
     <div class="explanation">
       <p>Select the countries you want to compare covid 19 data to</p>
     </div>
     <div class="country-select">
-      <div class="country-list" v-if="countries">
-        <div class="checkbox"  v-for="country in countries">
-          <input type="checkbox" id="country" :value="country" v-model="checked" v-on:click="check">
-          <label for="country">{{country}}</label>
+      <div v-if="countries.length > 0">
+        <div class="country-list">
+          <div class="checkbox"  v-for="country in countries">
+            <input type="checkbox" id="country" :value="country" v-model="checked" v-on:click="check">
+            <label for="country">{{country}}</label>
+          </div>
         </div>
       </div>
-      <div class="selected" v-if="checked">
-        <div class="selected-country" v-for="country in checked">
-          <button :value="country" v-on:click='uncheck($event)' > x </button>
-          <p>{{country}}</p>
+      <div v-else>
+        <div class="country-list">
+          <div class="loader"></div>
+        </div>
+      </div>
+      <div class="selected">
+        <div class="button-clear-all">
+          <button v-on:click="uncheckAll">Clear All</button>
+        </div>
+        <div  class="selected-country">
+          <div class="country-card" v-for="country in checked">
+            <button :value="country" v-on:click='uncheck($event)' > x </button>
+            <p>{{country}}</p>
+          </div>
         </div>
       </div>
     </div>
-    <button class="compare-button" v-on:click="compareCountries">Compare</button>
-    <div class="chart">
-      <line-chart v-if="this.clicked" :data="selectedCountries"></line-chart>
+    <div class="compare-button">
+      <button v-on:click="compareCountries">Compare</button>
+    </div>
+    <div v-if="this.clicked">
+      <div class="chart" >
+        <line-chart class="compare-chart"  :data="selectedCountries"></line-chart>
+      </div>
+    </div>
+    <div v-else>
+      <div class="chart">
+        <p>To see the graph comparing the countries, select the countries and press the compare button.</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
 .compare {
-  margin: 2rem auto;
-  display: grid;
-  max-width: 75rem;
-  grid-template-columns:1fr;
-  grid-template-areas: "explanation"
-                       "countrySelect"
-                       "compareButton"
-                        "charts";
-  gap:1rem;
+  margin: 3rem auto;
 }
 .explanation {
-  grid-area: explanation;
   text-align: center;
 }
 .country-select {
-  grid-area: countrySelect;
-  background-color: beige;
-  display: grid;
-  grid-template-columns: 0.4fr 1.5fr;
-  grid-template-areas: "countryList selected";
-  gap:1rem;
+  margin: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .country-list {
-  grid-area: countryList;
+  background: linear-gradient(90deg,#db2f08,#db0972);
   width: 15rem;
-  height: 15rem;
-  font-size: 20px;
-  border: 1px solid gray;
+  height: 20rem;
   overflow-y: scroll;
+  color: white;
+  padding: 0.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0,0.2);
 }
 .checkbox {
-  padding: 0.7rem;
-}
-.checkbox:nth-child(odd) {
-  background-color: rgb(221, 221, 221);
-}
-.checkbox:nth-child(even) {
-  background-color: rgb(233, 233, 233);
+  padding: 0.2rem;
+  border-bottom: 1px solid white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .selected {
-  grid-area: selected;
+  width: 60%;
+  margin-left: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0,0.2);
+}
+.button-clear-all {
+  text-align: center;
+  height: 10%;
+}
+.button-clear-all button {
+  height: 100%;
+  width: 7rem;
+  border: none;
+  background-color: #db2f08;
+  color: white;
+  cursor: pointer;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.button-clear-all button:hover {
+  background-color: #db0972;
+
+}
+.selected-country {
+  margin: 0 auto;
+  max-width: 100%;
+  height: 19rem;
+  overflow-x: auto;
   display: flex;
+  flex-direction: row;
+}
+.country-card {
+  min-width: 11rem;
+  min-height: 10rem;
+  background: linear-gradient(45deg,#db2f08,#db0972);
+  color: white;
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
-.selected-country {
-  width: 10rem;
-  height: 10rem;
-  border: 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  margin: 0 0.5rem;
-  
+.country-card button {
+  color: white;
+  border: none !important;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+  padding: 0.1rem 1rem;
 }
-.country p {
-  font-size: 25px;
+.country-card button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.country-card p {
+  flex: 2;
+  display: flex;
+  align-items: center;
 }
 .compare-button {
-  grid-area: compareButton;
+  margin: 3rem auto;
+  text-align: center;
 }
-.charts {
-  grid-area: charts;
+.compare-button button {
+  border: none !important;
+  margin: 1rem;
+  width: 10rem;
+  height: 2rem;
+  color: white;
+  background-color:#db2f08;
+  box-shadow: 0 0 5px #db0972;
+  cursor: pointer;
 }
+.compare-button button:hover {
+  background-color: #db0972;
+}
+.chart {
+  background-color: white;
+  margin: 2rem auto;
+  max-width: 40rem;
+  height: 25rem;
+  background: linear-gradient(90deg,#db2f08,#db0972);
+  box-shadow: 0 0 10px rgb(214, 214, 214);
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.compare-chart {
+  background-color: white;
+  border-radius: 8px;
+}
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #db0972;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin: 50% auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media screen and(max-width:750px) {
+  .country-list {
+    width: 10rem;
+  }
+  .selected-country {
+    width: 10rem;
+    flex-direction: column;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  .country-card {
+    min-width:9rem;
+    font-size: 1rem;
+  }
+  .chart {
+    width: 19rem;
+  }
+}
+
 </style>
