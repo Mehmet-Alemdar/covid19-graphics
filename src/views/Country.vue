@@ -79,7 +79,8 @@ export default {
 <style lang="scss">
 .country {
   text-align: center;
-  font-weight: 200;
+  font-weight: 60;
+  padding-bottom: 5rem;
 }
 .title {
   text-transform: uppercase;
@@ -94,10 +95,9 @@ export default {
   border-radius: 5px;
 }
 .bar-chart-href {
-  margin: 1rem auto;
+  margin: 3rem auto;
   width: 15rem;
   display: flex;
-  background-color: aqua;
 }
 .bar-chart-href a {
   flex: 1;
@@ -136,15 +136,15 @@ export default {
   padding: 0.5rem 0.5rem;
 }
 @media screen and (max-width: 750px)  {
+  .country {
+    margin: 1rem;
+  }
   .summary-container {
-    width: 25rem;
+    margin: 1rem;
   }
   .comparison-container {
     width: 20rem;
     flex-direction: column;
-  }
-  .bar-chart-container {
-    width: 27rem;
   }
 }
 </style>
