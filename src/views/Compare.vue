@@ -127,14 +127,14 @@ export default {
 
 <style lang="scss">
 .compare {
-  margin: 3rem auto;
+  margin: 0 auto;
   padding-bottom: 4rem;
 }
 .explanation {
   text-align: center;
 }
 .country-select {
-  margin: 3rem;
+  margin: 1rem auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -216,7 +216,7 @@ export default {
   align-items: center;
 }
 .compare-button {
-  margin: 3rem auto;
+  margin: 1rem auto;
   text-align: center;
 }
 .compare-button button {
