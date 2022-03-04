@@ -18,6 +18,7 @@ export default {
     BarChart
   },
   async mounted () {
+    this.date = await this.currentDate()
     const countries = await this.fetchSummary()
     this.country = countries.find(e => e.country == this.$route.query.q)
     console.log(this.country)
@@ -33,10 +34,9 @@ export default {
       this.country.recovered, this.country.todayRecovered,
       this.country.active, this.country.critical
     )
-    this.date = new Date()
   },
   methods: {
-    ...mapActions(['fetchSummary'])
+    ...mapActions(['fetchSummary', 'currentDate'])
   }
 }
 </script>
