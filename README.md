@@ -1,4 +1,4 @@
-# covid19-graphics
+# Coronavirus Graphics
 ## A website where coronavirus data is reflected in graphics
 ## Designed in accordance with responsive design
 ### To run this project
