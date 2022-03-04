@@ -91,6 +91,10 @@ select {
   height: 2rem;
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
+  outline: 0;
+}
+select:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .router:hover {
   color:#FFC800;
